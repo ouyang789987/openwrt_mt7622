@@ -16,5 +16,10 @@ sed -i 's/192.168.1.1/192.168.0.1/g' package/base-files/files/bin/config_generat
 sed -i '/customized in this file/a net.netfilter.nf_conntrack_max=165535' package/base-files/files/etc/sysctl.conf
 
 # Add luci-theme-argon
-# git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
-# git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config
+git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon package/luci-theme-argon
+git clone https://github.com/jerrykuku/luci-app-argon-config package/luci-app-argon-config package/luci-app-argon-config
+git clone https://github.com/destan19/OpenAppFilter.git package/OpenAppFilter
+
+make defconfig
+echo "CONFIG_PACKAGE_luci-app-oaf=y" >>.config  
+make defconfig
